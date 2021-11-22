@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
+    box-sizing: border-box;
+}
+body{
+    background-color: #23272A;
+}
+.links{
+
+    text-align: center;
+    padding: 15px;
+    border: 3px solid red;
+    background-color: #ff5252;
+    width: 75%;
+    margin: auto;
+    border-radius: 10px;
+    position:relative;
+}
+.links a{
+    background-color: #e8b923;
+    color: #84491f;
+    border:#e8b923;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 7px;
+    margin: 30px;
+    border-radius: 10px;
+}
+a:hover{
+    background-color: #f4df99;
+}
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    color:  #e8b923;
+}
+h2{
+    font-family: 'Times New Roman', Times, serif;
+    color:  #e8b923;
+    margin: 0px 50px 0px;
+
+}
+h3{
+    font-family: 'Times New Roman', Times, serif;
+    color:  #e8b923;
+    margin: 0px 50px 0px;
+
+}
+h4{
+    font-family: 'Times New Roman', Times, serif;
+    color:  #e8b923;
+    margin: 0px 50px 0px;
+
+}
+#Subtitle{
+    font-family: 'Times New Roman', Times, serif;
+    color:  #a58724;
+    margin: 0px 50px 0px;
+
+}
+p{
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    margin: 0px 50px 0px;
+}
+#user, #email, #pass{
+    background-color: #ff5252;
+}
