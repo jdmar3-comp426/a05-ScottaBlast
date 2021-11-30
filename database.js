@@ -2,28 +2,27 @@
 "use strict";
 // Require better-sqlite.
 const Database = require('better-sqlite3');
-
-// Connect to a database or create one if it doesn't exist yet.
-const db = new Database('user.db');
+// Connect to databases or create them if one doesn't exist yet.
+const db1 = new Database('userinfo.db');
 
 // Is the database initialized or do we need to initialize it?
-const stmt = db.prepare(`SELECT name FROM sqlite_master WHERE type='table' and name='userinfo';`);
-let row = stmt.get();
-if (row === undefined) {
+const stmt = db1.prepare(`SELECT name FROM sqlite_master WHERE type='table' and name='userinfo';`);
+let URow = stmt.get();
+
+if (URow === undefined) {
 // Echo information about what you are doing to the console.
-    console.log('Your database appears to be empty. I will initialize it now.');
+    console.log('Your user database appears to be empty. Initializing...');
 // Set a const that will contain your SQL commands to initialize the database.
-    const sqlInit = `
-        CREATE TABLE userinfo ( id INTEGER PRIMARY KEY, user TEXT, pass TEXT, email TEXT );
-		INSERT INTO userinfo (user, pass, email) VALUES ('admin','bdc87b9c894da5168059e00ebffb9077', 'email@email.com'), ('test','9241818c20435c6672dac2c4b6e6c071', 'legoland@legoland.com')
-    `;
+    const sqlUInit = `
+        CREATE TABLE userinfo ( id INTEGER PRIMARY KEY, user TEXT, pass TEXT, email TEXT, lastlogin TEXT);
+        INSERT INTO userinfo (user, pass, email, lastlogin) VALUES ('admin','bdc87b9c894da5168059e00ebffb9077', 'email@email.com', 9/9/1999), ('test','9241818c20435c6672dac2c4b6e6c071', 'legoland@legoland.com', 6/66/666)
+        `;
 // Execute SQL commands that we just wrote above.
-    db.exec(sqlInit);
+    db1.exec(sqlUInit);
 // Echo information about what we just did to the console.
-    console.log('Your database has been initialized with a new table and two entries containing a username and password.');
+    console.log('Your user database has been initialized with a new table and two entries.');
 } else {
 // Since the database already exists, echo that to the console.
-    console.log('Database exists.')
+    console.log('User Database exists.')
 }
-// Export all of the above as a module so that we can use it elsewhere.
-module.exports = db
+module.exports = db1;
